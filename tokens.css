@@ -1,0 +1,84 @@
+/*
+  Project: KY Wedding Invite — Living Card
+  File: tokens.css
+  Version: 3.1.0
+  Purpose: Stores global colors, fonts, spacing, radius, shadows,
+           and section background tones.
+  Key Constraints: Keep all reusable design values centralized.
+*/
+
+/* =========================================================
+   THEME TOKENS
+========================================================= */
+
+:root {
+  /* =======================================================
+     BASE COLORS
+  ======================================================= */
+
+  --bg: #fbf6ee;
+  --bg-soft: #fffaf2;
+  --card: #fffdf8;
+  --ivory: #fff8ea;
+
+  --ink: #2f241b;
+  --ink-soft: #5f5044;
+
+  --burgundy: #68121b;
+  --burgundy-dark: #4b0d13;
+
+  --gold: #c69a4a;
+  --gold-dark: #9a7131;
+
+  --green: #3f4f2f;
+  --green-soft: #798866;
+
+  --blush: #c88993;
+  --cream: #f4e5cc;
+
+  /* =======================================================
+     SECTION BACKGROUNDS
+     
+     These are intentionally subtle. They create visual
+     separation without making the invitation look like
+     separate colored cards.
+  ======================================================= */
+
+  --section-ivory: #fbf6ee;
+  --section-cream: #f7efe3;
+  --section-champagne: #f3e8d7;
+  --section-sage: #eef0e7;
+  --section-blush: #f7eeee;
+
+  /* =======================================================
+     BORDERS / SHADOWS
+  ======================================================= */
+
+  --line: rgba(125, 81, 31, 0.22);
+  --shadow: rgba(67, 41, 22, 0.13);
+
+  /* =======================================================
+     TYPOGRAPHY
+  ======================================================= */
+
+  --serif: Georgia, "Times New Roman", serif;
+  --script: "Brush Script MT", "Segoe Script", cursive;
+
+  /* =======================================================
+     RADII
+  ======================================================= */
+
+  --radius-sm: 0.75rem;
+  --radius-md: 1rem;
+  --radius-lg: 1.35rem;
+
+  /* =======================================================
+     SPACING
+  ======================================================= */
+
+  --space-xs: 0.35rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+}

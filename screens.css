@@ -1,0 +1,184 @@
+/*
+  Project: KY Wedding Invite — Living Card
+  File: screens.css
+  Version: 3.1.0
+  Purpose: Controls full-screen animation states, screen transitions,
+           and intro screen layout.
+  Key Constraints: Keep envelope and flower animations in their own
+                    CSS files. Keep invitation scrolling independent.
+*/
+
+/* =========================================================
+   SCREEN SYSTEM
+========================================================= */
+
+.app-shell {
+  position: relative;
+
+  min-height: 100vh;
+
+  overflow: hidden;
+
+  background: var(--bg);
+}
+
+.screen {
+  position: absolute;
+  inset: 0;
+
+  min-height: 100vh;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: scale(1.01);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease,
+    visibility 0s linear 700ms;
+}
+
+.screen.is-active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+  transform: scale(1);
+
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease,
+    visibility 0s linear 0s;
+}
+
+/* =========================================================
+   INTRO SCREENS
+========================================================= */
+
+.screen-envelope,
+.screen-flower {
+  display: grid;
+  place-items: center;
+
+  padding: var(--space-md);
+
+  overflow: hidden;
+}
+
+/* =========================================================
+   MAIN INVITATION SCREEN
+========================================================= */
+
+.screen-invite {
+  display: block;
+
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  background: var(--bg);
+
+  -webkit-overflow-scrolling: touch;
+}
+
+/* =========================================================
+   HIDDEN INTRO SCREENS
+========================================================= */
+
+/*
+  Prevent inactive animation screens from visually or
+  interactively bleeding through, especially on mobile Safari.
+*/
+
+.screen-envelope:not(.is-active),
+.screen-flower:not(.is-active) {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.screen-envelope:not(.is-active) *,
+.screen-flower:not(.is-active) * {
+  animation-play-state: paused;
+}
+
+/* =========================================================
+   ENVELOPE / FLOWER SCREEN BACKGROUND
+========================================================= */
+
+.ambient-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    radial-gradient(
+      circle at 15% 72%,
+      rgba(125, 23, 33, 0.42),
+      transparent 10rem
+    ),
+    radial-gradient(
+      circle at 86% 18%,
+      rgba(125, 23, 33, 0.34),
+      transparent 11rem
+    ),
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(198, 154, 74, 0.25),
+      transparent 22rem
+    ),
+    linear-gradient(
+      180deg,
+      #070503,
+      #17110c 54%,
+      #070503
+    );
+}
+
+/* =========================================================
+   INTRO COPY
+========================================================= */
+
+.intro-copy {
+  width: min(100%, 32rem);
+  margin-bottom: var(--space-xl);
+
+  color: var(--cream);
+
+  text-align: center;
+}
+
+.intro-copy h1 {
+  margin-top: var(--space-xs);
+
+  color: #fff6e7;
+
+  font-family: var(--script);
+  font-size: clamp(3rem, 15vw, 5.5rem);
+  font-weight: 400;
+
+  line-height: 1;
+
+  text-shadow:
+    0 0.7rem 2rem rgba(0, 0, 0, 0.65);
+}
+
+.intro-copy p:last-child {
+  margin-top: var(--space-sm);
+
+  line-height: 1.5;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .screen,
+  .screen.is-active {
+    transition: none;
+
+    transform: none;
+  }
+}

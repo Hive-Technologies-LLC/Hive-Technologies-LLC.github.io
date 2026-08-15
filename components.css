@@ -1,0 +1,370 @@
+/*
+  Project: KY Wedding Invite — Living Card
+  File: components.css
+  Version: 3.3.0
+  Purpose: Reusable cards, countdown, quick actions, detail blocks,
+           and floating page navigation.
+  Key Constraints: Compact horizontal quick actions and 2x2 detail
+                    cards on smaller screens.
+*/
+
+/* =========================================================
+   EVENT SUMMARY
+========================================================= */
+
+.event-summary {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-sm);
+
+  width: min(100% - 2rem, 45rem);
+  margin: -2.5rem auto 0;
+  padding: var(--space-md);
+
+  position: relative;
+  z-index: 3;
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+
+  background: rgba(255, 253, 248, 0.88);
+  box-shadow: 0 1rem 2rem var(--shadow);
+}
+
+.summary-item {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-sm);
+  align-items: center;
+
+  color: var(--ink);
+  text-align: left;
+}
+
+.summary-icon {
+  color: var(--gold-dark);
+  font-size: 1.35rem;
+}
+
+/* =========================================================
+   COUNTDOWN
+========================================================= */
+
+.countdown-section {
+  width: min(100% - 2rem, 47rem);
+  margin: 2rem auto 0;
+  padding: 1.35rem 1rem;
+
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--section-cream);
+}
+
+.countdown-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 253, 248, 0.82);
+  box-shadow: 0 0.75rem 1.75rem rgba(67, 41, 22, 0.08);
+}
+
+.countdown-box {
+  padding: 1rem 0.35rem;
+  border-right: 1px solid var(--line);
+}
+
+.countdown-box:last-child {
+  border-right: 0;
+}
+
+.countdown-box strong {
+  display: block;
+
+  color: var(--burgundy);
+
+  font-size: clamp(2rem, 9vw, 4rem);
+  font-weight: 500;
+  line-height: 1;
+}
+
+.countdown-box span {
+  display: block;
+
+  margin-top: 0.35rem;
+
+  color: var(--ink);
+
+  font-size: 0.65rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   QUICK ACTIONS
+========================================================= */
+
+.quick-actions-section {
+  width: min(100% - 2rem, 47rem);
+  margin: 1.5rem auto 0;
+  padding: 1.1rem 0.75rem;
+
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--section-ivory);
+}
+
+.quick-actions-heading {
+  display: grid;
+  gap: 0.2rem;
+
+  margin-bottom: 0.7rem;
+}
+
+.quick-actions-heading .small-caps {
+  margin: 0;
+
+  color: var(--burgundy);
+
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+}
+
+.quick-actions-heading span {
+  color: var(--ink-soft);
+
+  font-size: 0.68rem;
+}
+
+/* Navigation row */
+
+.quick-actions {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  width: 100%;
+
+  overflow: hidden;
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: 0 0.6rem 1.25rem rgba(67, 41, 22, 0.08);
+}
+
+/* Individual buttons */
+
+.quick-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 0;
+  min-height: 4.4rem;
+  padding: 0.55rem 0.25rem;
+
+  color: var(--ink);
+
+  border-right: 1px solid var(--line);
+
+  text-align: center;
+
+  transition:
+    background 180ms ease,
+    transform 180ms ease;
+}
+
+.quick-action:last-child {
+  border-right: 0;
+}
+
+.quick-action:hover,
+.quick-action:focus-visible {
+  background: rgba(234, 215, 196, 0.35);
+}
+
+.quick-action:active {
+  transform: scale(0.96);
+}
+
+/* Icons */
+
+.quick-action-icon {
+  display: block;
+
+  margin-bottom: 0.2rem;
+
+  color: var(--burgundy);
+
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+/* Labels */
+
+.quick-action strong {
+  display: block;
+
+  color: var(--ink);
+
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  line-height: 1.1;
+
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   DETAILS CARD
+========================================================= */
+
+.details-section {
+  width: min(100% - 2rem, 47rem);
+  margin: 2rem auto 0;
+  padding: 1.35rem 0.75rem;
+
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--section-champagne);
+}
+
+.details-card {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-sm);
+
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.detail-item {
+  display: grid;
+  gap: 0.3rem;
+  place-items: center;
+
+  min-height: 8.8rem;
+  padding: 1rem 0.55rem;
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 253, 248, 0.88);
+  box-shadow: 0 0.75rem 1.75rem rgba(67, 41, 22, 0.08);
+
+  text-align: center;
+}
+
+.detail-icon {
+  color: var(--gold-dark);
+  font-size: 1.85rem;
+  line-height: 1;
+}
+
+.detail-item small {
+  color: var(--burgundy-dark);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.detail-item strong {
+  color: var(--ink);
+  font-size: 0.86rem;
+  line-height: 1.25;
+}
+
+.detail-item em {
+  color: var(--gold-dark);
+  font-size: 0.72rem;
+  font-style: normal;
+}
+
+.closing-note {
+  margin-top: 1rem;
+
+  color: var(--burgundy);
+
+  font-family: var(--script);
+  font-size: clamp(1.5rem, 6vw, 2.2rem);
+}
+
+/* =========================================================
+   INFO CARDS
+========================================================= */
+
+.lower-cards {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+
+  width: min(100% - 2rem, 47rem);
+  margin: 1.5rem auto 0;
+}
+
+.info-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-md);
+  align-items: center;
+
+  padding: var(--space-lg);
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+
+  background: rgba(255, 253, 248, 0.84);
+  box-shadow: 0 0.75rem 1.75rem rgba(67, 41, 22, 0.08);
+}
+
+.registry-card {
+  background: var(--section-blush);
+}
+
+.rsvp-card {
+  background: var(--section-cream);
+}
+
+.circle-icon {
+  display: grid;
+  place-items: center;
+
+  width: 4rem;
+  height: 4rem;
+
+  border-radius: 50%;
+
+  color: #fff;
+  background: var(--gold);
+
+  font-size: 1.9rem;
+}
+
+.burgundy-icon {
+  background: var(--blush);
+}
+
+.info-card .small-caps {
+  margin-bottom: var(--space-xs);
+}
+
+.info-card p:not(.small-caps) {
+  color: var(--ink-soft);
+  line-height: 1.45;
+}

@@ -1,0 +1,170 @@
+/*
+  Project: KY Wedding Invite — Living Card
+  File: responsive.css
+  Version: 3.2.0
+  Purpose: Responsive layout rules for mobile, tablet, and desktop.
+  Key Constraints: Mobile-first, compact navigation, clean section spacing.
+*/
+
+/* =========================================================
+   TABLET LAYOUT
+========================================================= */
+
+@media (min-width: 42rem) {
+
+  .feature-section {
+    grid-template-columns: 1fr 1.2fr;
+  }
+
+  .dress-code-section {
+    grid-template-columns: 1fr;
+  }
+
+  .venue-section {
+    grid-template-columns: 1.15fr 1fr;
+  }
+
+  .lower-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .thank-you-section {
+    grid-template-columns: auto 1fr;
+    text-align: left;
+  }
+}
+
+/* =========================================================
+   DESKTOP LAYOUT
+========================================================= */
+
+@media (min-width: 56rem) {
+
+  .dress-code-section {
+    grid-template-columns: 1fr;
+  }
+
+  /* -----------------------------------------
+     DETAILS
+  ----------------------------------------- */
+
+  .details-card {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+  }
+
+  .detail-item {
+    min-height: 9rem;
+  }
+}
+
+/* =========================================================
+   MOBILE / SMALL PHONES
+========================================================= */
+
+@media (max-width: 28rem) {
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .script-word {
+    font-size: 2.5rem;
+  }
+
+  .countdown-box strong {
+    font-size: 1.5rem;
+  }
+
+  .countdown-box span {
+    font-size: 0.55rem;
+  }
+
+  /* -----------------------------------------
+     QUICK ACTIONS
+     Keep all four actions compact and
+     horizontally visible on small screens.
+  ----------------------------------------- */
+
+  .quick-actions {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .quick-action {
+    min-height: 3.8rem;
+    padding: 0.45rem 0.15rem;
+  }
+
+  .quick-action-icon {
+    font-size: 0.9rem;
+    margin-bottom: 0.15rem;
+  }
+
+  .quick-action strong {
+    font-size: 0.55rem;
+    letter-spacing: 0.04em;
+  }
+
+  /* -----------------------------------------
+     QUICK ACTION HEADING
+  ----------------------------------------- */
+
+  .quick-actions-heading {
+    margin-bottom: 0.55rem;
+  }
+
+  .quick-actions-heading .small-caps {
+    font-size: 0.65rem;
+  }
+
+  .quick-actions-heading span {
+    font-size: 0.6rem;
+  }
+
+  /* -----------------------------------------
+     DETAILS
+  ----------------------------------------- */
+
+  .detail-item {
+    min-height: 8rem;
+  }
+
+  .detail-item strong {
+    font-size: 0.8rem;
+  }
+
+  /* -----------------------------------------
+     DRESS CODE
+  ----------------------------------------- */
+
+  .guest-colors {
+    gap: 0.4rem;
+  }
+
+  .guest-color > span:not(.dot) {
+    font-size: 0.68rem;
+  }
+
+  /* -----------------------------------------
+     FLOATING BACK TO TOP
+  ----------------------------------------- */
+
+  .back-to-top {
+    right: 0.75rem;
+    bottom: 0.9rem;
+
+    width: 2.5rem;
+    height: 2.5rem;
+
+    font-size: 1.15rem;
+  }
+
+  /* -----------------------------------------
+     FLOWERS
+  ----------------------------------------- */
+
+  .hero-floral-left,
+  .hero-floral-right {
+    width: 4rem;
+  }
+}

@@ -1,0 +1,550 @@
+/*
+  Project: KY Wedding Invite — Living Card
+  File: sections.css
+  Version: 3.1.0
+  Purpose: Feature sections, dress code, venue, registry/RSVP area,
+           and thank-you section.
+  Key Constraints: Keep section-specific styles here.
+*/
+
+/* =========================================================
+   FEATURE SECTIONS
+========================================================= */
+
+.feature-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+
+  width: min(100% - 2rem, 47rem);
+  margin: 1.5rem auto 0;
+  padding: var(--space-md);
+
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+
+  background: var(--section-ivory);
+  box-shadow: 0 0.75rem 1.75rem rgba(67, 41, 22, 0.08);
+}
+
+.feature-image {
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  background: var(--cream);
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  max-height: 18rem;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.feature-copy {
+  display: grid;
+  gap: var(--space-sm);
+  align-content: center;
+
+  text-align: center;
+}
+
+.feature-copy h2 {
+  color: var(--burgundy);
+
+  font-size: 1.25rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   DRESS CODE SECTION
+========================================================= */
+
+.dress-code-section {
+  background: var(--section-champagne);
+}
+
+.dress-code-copy {
+  width: 100%;
+  text-align: center;
+}
+
+.dress-code-copy h2 {
+  color: var(--burgundy);
+}
+
+/* =========================================================
+   VENUE SECTION
+========================================================= */
+
+.venue-section {
+  background: var(--section-sage);
+}
+
+.venue-section .feature-copy h2 {
+  color: var(--gold-dark);
+
+  font-family: var(--script);
+  font-size: clamp(2.2rem, 9vw, 4rem);
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* =========================================================
+   ATTIRE CATEGORY CARDS
+========================================================= */
+
+.attire-categories {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
+
+  margin-bottom: 1rem;
+}
+
+.attire-card {
+  display: grid;
+  justify-items: center;
+  align-content: start;
+  gap: 0.45rem;
+
+  padding: 0.75rem;
+
+  border: 1px solid rgba(125, 23, 33, 0.12);
+  border-radius: var(--radius-sm);
+
+  background: rgba(255, 250, 242, 0.72);
+}
+
+.attire-card h3 {
+  margin: 0;
+
+  color: var(--burgundy);
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.attire-card img {
+  width: 100%;
+  max-width: 5rem;
+  height: 6rem;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0.4rem 0.75rem
+      rgba(0, 0, 0, 0.12)
+    );
+}
+
+/* =========================================================
+   WOMEN GARMENT GRID
+========================================================= */
+
+.attire-card-large {
+  grid-column: 1 / -1;
+}
+
+.garment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+
+  width: 100%;
+  margin-top: 0.25rem;
+}
+
+.garment-grid img {
+  width: 100%;
+  max-width: none;
+  height: 5rem;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0.35rem 0.65rem
+      rgba(0, 0, 0, 0.12)
+    );
+}
+
+/* =========================================================
+   MOBILE LAYOUT
+========================================================= */
+
+.attire-card:last-child {
+  grid-column: 1 / -1;
+}
+
+.attire-card:last-child img {
+  max-width: 5rem;
+  height: 6rem;
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media (min-width: 48rem) {
+
+  .attire-categories {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .attire-card-large {
+    grid-column: span 2;
+  }
+
+  .garment-grid img {
+    height: 6rem;
+  }
+
+  .attire-card img {
+    max-width: 6rem;
+    height: 7rem;
+  }
+
+  .attire-card:last-child {
+    grid-column: auto;
+  }
+
+  .attire-card:last-child img {
+    max-width: 6rem;
+    height: 7rem;
+  }
+}
+
+/* =========================================================
+   DRESS CODE GROUPS
+========================================================= */
+
+.dress-groups {
+  display: grid;
+  gap: 0;
+}
+
+.dress-group {
+  padding: 1rem 0;
+
+  border: 0;
+  border-bottom: 1px solid rgba(125, 23, 33, 0.12);
+
+  background: transparent;
+}
+
+.dress-group:last-child {
+  border-bottom: 0;
+}
+
+.dress-group strong {
+  display: block;
+
+  color: var(--burgundy);
+
+  font-size: 0.82rem;
+  letter-spacing: 0.14em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dress-group span {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.guest-group {
+  background: transparent;
+}
+
+/* =========================================================
+   DRESS CODE NOTES
+========================================================= */
+
+.dress-code-notes {
+  display: grid;
+  gap: 0.6rem;
+
+  margin-top: 0.25rem;
+  padding: 0.75rem 0.5rem 0;
+
+  color: var(--ink-soft);
+  font-size: 0.75rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.dress-code-notes p {
+  margin: 0;
+}
+
+.dress-code-notes strong {
+  color: var(--burgundy);
+  font-weight: 700;
+}
+
+/* =========================================================
+   DRESS CODE SCROLL
+========================================================= */
+
+.dress-code-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-lg);
+
+  overflow: hidden;
+}
+
+.dress-category {
+  display: grid;
+  gap: var(--space-sm);
+
+  width: 100%;
+  min-width: 0;
+}
+
+.dress-category h3 {
+  color: var(--burgundy);
+
+  font-size: 0.9rem;
+  letter-spacing: 0.16em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.dress-scroll {
+  width: 100%;
+  max-width: 100%;
+
+  overflow: hidden;
+}
+
+.dress-track {
+  display: flex;
+  gap: var(--space-md);
+
+  width: max-content;
+  min-width: max-content;
+
+  animation: dress-scroll-left 24s linear infinite;
+}
+
+.dress-track.reverse-speed {
+  animation-duration: 30s;
+}
+
+.dress-track img {
+  flex: 0 0 auto;
+
+  width: clamp(9rem, 38vw, 15rem);
+  height: 15rem;
+
+  margin: 0 0.25rem;
+  padding: 0;
+
+  border: 0;
+  border-radius: 0;
+
+  background: transparent;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(0 0.6rem 1rem rgba(0, 0, 0, 0.15));
+
+  transition:
+    transform 350ms ease,
+    filter 350ms ease;
+}
+
+.dress-track img:hover {
+  transform: translateY(-0.35rem) scale(1.04);
+
+  filter:
+    drop-shadow(0 1rem 1.5rem rgba(0, 0, 0, 0.22));
+}
+
+.dress-scroll:hover .dress-track {
+  animation-play-state: paused;
+}
+
+@keyframes dress-scroll-left {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   TABLET / DESKTOP
+========================================================= */
+
+@media (min-width: 48rem) {
+
+  .attire-categories {
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  .attire-card:last-child {
+    grid-column: auto;
+  }
+
+  .attire-card img {
+    max-width: 6rem;
+    height: 7rem;
+  }
+
+  .attire-card:last-child img {
+    max-width: 6rem;
+    height: 7rem;
+  }
+}
+
+/* =========================================================
+   COLOR DOTS + COLOR NAMES
+========================================================= */
+
+.guest-colors {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  gap: 0.75rem;
+
+  width: 100%;
+  margin-top: 0.75rem;
+}
+
+.guest-color {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex: 1 1 0;
+  min-width: 0;
+
+  gap: 0.4rem;
+
+  text-align: center;
+}
+
+.guest-color .dot {
+  flex: 0 0 auto;
+}
+
+.guest-color > span:not(.dot) {
+  display: block;
+
+  margin: 0;
+
+  color: var(--ink-soft);
+
+  font-size: 0.72rem;
+  line-height: 1.15;
+  text-align: center;
+}
+
+/* =========================================================
+   COLOR DOT
+========================================================= */
+
+.dot {
+  display: block;
+
+  width: 1.35rem;
+  height: 1.35rem;
+
+  flex: 0 0 1.35rem;
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.12),
+    0 0.25rem 0.8rem rgba(0, 0, 0, 0.08);
+}
+
+.ivory {
+  background: #fff8ea;
+}
+
+.black {
+  background: #111111;
+}
+
+.ruby {
+  background: #9b111e;
+}
+
+.burgundy-dot {
+  background: #6f1d2d;
+}
+
+.sage {
+  background: #9caf88;
+}
+
+.olive {
+  background: #5f6b3f;
+}
+
+.navy {
+  background: #10233f;
+}
+
+.champagne {
+  background: #ead7c4;
+}
+
+.mocha {
+  background: #6a3f28;
+}
+
+/* =========================================================
+   THANK YOU SECTION
+========================================================= */
+
+.thank-you-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-md);
+  align-items: end;
+
+  width: min(100% - 2rem, 47rem);
+  margin: 1.5rem auto 0;
+  padding: 1.5rem 1rem 3rem;
+
+  text-align: center;
+
+  border-radius: var(--radius-lg);
+
+  background: var(--section-ivory);
+}
+
+.thank-you-flower-girl {
+  width: min(60vw, 13rem);
+  margin: 0 auto;
+
+  filter: drop-shadow(0 1rem 1.75rem rgba(0, 0, 0, 0.14));
+}
+
+.thank-you-copy h2 {
+  color: var(--gold-dark);
+
+  font-family: var(--script);
+  font-size: clamp(2.6rem, 11vw, 4.3rem);
+  font-weight: 400;
+}
+
+.thank-you-copy p {
+  color: var(--ink);
+  line-height: 1.5;
+}

@@ -1,0 +1,519 @@
+<!--
+  Project: KY Wedding Invite — Living Card
+  File: index.html
+  Version: 3.2.0
+  Purpose: Interactive one-page wedding invitation with simplified guest navigation.
+  Key Constraints: Static, Netlify-ready, mobile-first, no external libraries.
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- [HTML:HEAD-META] -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Yaimi and Kashawn are getting married. Please RSVP." />
+  <title>Yaimi & Kashawn Wedding Invitation</title>
+
+<link rel="stylesheet" href="./styles/tokens.css" />
+<link rel="stylesheet" href="./styles/base.css" />
+<link rel="stylesheet" href="./styles/screens.css" />
+<link rel="stylesheet" href="./styles/hero.css" />
+<link rel="stylesheet" href="./styles/components.css" />
+<link rel="stylesheet" href="./styles/sections.css" />
+<link rel="stylesheet" href="./styles/buttons.css" />
+<link rel="stylesheet" href="./styles/responsive.css" />
+
+<link rel="stylesheet" href="./styles/envelope.css" />
+<link rel="stylesheet" href="./styles/petals.css" />
+</head>
+
+<body>
+  <!-- [HTML:APP-SHELL] -->
+  <main class="app-shell">
+
+    <!-- [HTML:ENVELOPE-SCREEN] -->
+    <section class="screen screen-envelope is-active" id="envelopeScreen">
+      <div class="ambient-bg"></div>
+
+      <div class="intro-copy">
+        <p class="small-caps">You’re Invited</p>
+        <h1>Yaimi & Kashawn</h1>
+        <p>Tap the wax seal to open your invitation.</p>
+      </div>
+
+      <button class="envelope-button" id="openInviteButton" type="button" aria-label="Open invitation">
+        <span class="envelope">
+          <span class="envelope-back"></span>
+          <span class="envelope-card"><span>KY</span></span>
+          <span class="envelope-left"></span>
+          <span class="envelope-right"></span>
+          <span class="envelope-bottom"></span>
+          <span class="envelope-flap"></span>
+<span class="wax-seal" aria-hidden="true">
+  <img
+    src="./assets/images/Wax-seal.png"
+    alt=""
+  />
+</span>
+        </span>
+
+        <span class="tap-label">Tap to Open</span>
+      </button>
+    </section>
+
+    <!-- [HTML:FLOWER-GIRL-SCREEN] -->
+    <section class="screen screen-flower" id="flowerScreen">
+      <div class="ambient-bg"></div>
+
+      <img
+        class="flower-girl-reveal"
+        src="./assets/images/flower-girl.PNG"
+        alt="Cartoon flower girl throwing red and white rose petals"
+      />
+    </section>
+
+    <!-- [HTML:PETAL-LAYER] -->
+    <div class="petal-layer" id="petalLayer" aria-hidden="true"></div>
+
+    <!-- [HTML:INVITATION-SCREEN] -->
+    <section class="screen screen-invite" id="inviteScreen">
+
+      <!-- [HTML:INVITE-PAGE] -->
+      <article class="invite-page" aria-label="Yaimi and Kashawn wedding website">
+
+        <!-- [HTML:HERO-SECTION] -->
+<section class="modern-hero" id="top">
+
+  <!-- [HTML:HERO-BACKGROUND] -->
+  <img
+    src="./assets/images/altar.PNG"
+    alt=""
+    class="hero-background"
+    aria-hidden="true"
+  />
+
+  <!-- [HTML:HERO-GLOW] -->
+  <div class="hero-background-overlay"></div>
+
+  <!-- [HTML:COUPLE-PHOTO] -->
+  <img
+    src="./assets/images/couple.PNG"
+    alt="Yaimi and Kashawn"
+    class="hero-couple-photo"
+  />
+
+  <div class="hero-fade"></div>
+
+<img
+  src="./assets/images/floral-top-left.png"
+  class="hero-floral-left"
+  alt=""
+/>
+
+<img
+  src="./assets/images/floral-top-right.png"
+  class="hero-floral-right"
+  alt=""
+/>
+          <div class="hero-content">
+            <p class="small-caps">You’re Invited To</p>
+            <h1>Yaimi & Kashawn’s</h1>
+            <p class="script-word">Wedding</p>
+
+            <div class="heart-divider" aria-hidden="true">
+              <span></span>
+              <b>♥</b>
+              <span></span>
+            </div>
+          </div>
+        </section>
+
+    <!-- [HTML:QUICK-ACTIONS] -->
+<section class="quick-actions-section" aria-label="Wedding section navigation">
+
+  <div class="quick-actions-heading">
+    <p class="small-caps">Explore Our Wedding</p>
+    <span>Tap an option to jump to that section</span>
+  </div>
+
+  <nav class="quick-actions" aria-label="Quick wedding navigation">
+
+    <a class="quick-action" href="#rsvpSection">
+      <span class="quick-action-icon">✉</span>
+      <strong>RSVP</strong>
+    </a>
+
+    <a class="quick-action" href="#venueSection">
+      <span class="quick-action-icon">⌖</span>
+      <strong>Venue</strong>
+    </a>
+
+    <a class="quick-action" href="#dressCode">
+      <span class="quick-action-icon">♕</span>
+      <strong>Dress Code</strong>
+    </a>
+
+    <a class="quick-action" href="#registrySection">
+      <span class="quick-action-icon">🎁</span>
+      <strong>Registry</strong>
+    </a>
+
+  </nav>
+
+</section>
+    
+        <!-- [HTML:COUNTDOWN-SECTION] -->
+        <section class="countdown-section" aria-label="Countdown to wedding">
+          <div class="section-heading-line">
+            <span></span>
+            <p>Countdown To Our Big Day</p>
+            <span></span>
+          </div>
+
+          <div class="countdown-grid">
+            <div class="countdown-box">
+              <strong id="daysValue">000</strong>
+              <span>Days</span>
+            </div>
+
+            <div class="countdown-box">
+              <strong id="hoursValue">00</strong>
+              <span>Hours</span>
+            </div>
+
+            <div class="countdown-box">
+              <strong id="minutesValue">00</strong>
+              <span>Minutes</span>
+            </div>
+
+            <div class="countdown-box">
+              <strong id="secondsValue">00</strong>
+              <span>Seconds</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- [HTML:DETAILS-SECTION] -->
+        <section class="details-section" id="detailsSection">
+          <div class="section-heading-line">
+            <span></span>
+            <p>The Details</p>
+            <span></span>
+          </div>
+
+          <div class="details-card">
+            <a class="detail-item" href="#top">
+              <span class="detail-icon">▣</span>
+              <small>Wedding Date</small>
+              <strong>March 18, 2027</strong>
+            </a>
+
+            <a class="detail-item" href="#detailsSection">
+              <span class="detail-icon">◷</span>
+              <small>Ceremony Time</small>
+              <strong>5:00 PM</strong>
+            </a>
+
+            <a class="detail-item" href="#venueSection">
+              <span class="detail-icon">⌖</span>
+              <small>Venue</small>
+              <strong>112 Story Partin Rd.<br />Orlando, FL 32833</strong>
+              <em>orangestarfarms.com</em>
+            </a>
+
+            <a class="detail-item" href="#rsvpSection">
+              <span class="detail-icon">✉</span>
+              <small>RSVP By</small>
+              <strong>December 11, 2026</strong>
+            </a>
+          </div>
+
+          <p class="closing-note">We can’t wait to celebrate with you!</p>
+        </section>
+
+<!-- [HTML:DRESS-CODE-SECTION] -->
+<section class="feature-section dress-code-section" id="dressCode">
+  <div class="feature-copy dress-code-copy">
+    <p class="small-caps">Dress Code</p>
+    <h2>Our Wedding Colors</h2>
+    <p>Please wear colors that match our wedding palette.</p>
+  </div>
+
+<!-- [HTML:DRESS-CODE-WOMEN] -->
+<article class="dress-category">
+  <h3>Women</h3>
+
+  <div class="dress-scroll">
+    <div class="dress-track">
+
+      <img src="./assets/images/dress-garments/Women-gown.PNG" alt="Women's gown" />
+      <img src="./assets/images/dress-garments/Women-cocktail.PNG" alt="Women's cocktail dress" />
+      <img src="./assets/images/dress-garments/Women-pantsuit.PNG" alt="Women's pantsuit" />
+      <img src="./assets/images/dress-garments/Women-jumpsuit.PNG" alt="Women's jumpsuit" />
+      <img src="./assets/images/dress-garments/Women-midi.PNG" alt="Women's midi dress" />
+
+      <!-- duplicate for seamless loop -->
+
+      <img src="./assets/images/dress-garments/Women-gown.PNG" alt="" aria-hidden="true" />
+      <img src="./assets/images/dress-garments/Women-cocktail.PNG" alt="" aria-hidden="true" />
+      <img src="./assets/images/dress-garments/Women-pantsuit.PNG" alt="" aria-hidden="true" />
+      <img src="./assets/images/dress-garments/Women-jumpsuit.PNG" alt="" aria-hidden="true" />
+      <img src="./assets/images/dress-garments/Women-midi.PNG" alt="" aria-hidden="true" />
+
+    </div>
+  </div>
+</article>
+
+  <!-- [HTML:DRESS-CODE-MEN] -->
+  <article class="dress-category">
+    <h3>Men</h3>
+    <div class="dress-scroll">
+      <div class="dress-track reverse-speed">
+
+        <img src="./assets/images/dress-garments/Men-twopiece.PNG" alt="Tucked-in button-down shirt" />
+        <img src="./assets/images/dress-garments/Men-vest.PNG" alt="Button-down shirt with vest" />
+        <img src="./assets/images/dress-garments/Men-threepiece.PNG" alt="Button-down shirt with coat" />
+        <img src="./assets/images/dress-garments/Men-suitwithtie.PNG" alt="Button-down shirt with tie" />
+		  <img src="./assets/images/dress-garments/Men-tuxedo.PNG" alt="Tuxedo with bowtie" />
+
+<!-- duplicate for seamless loop -->
+
+        <img src="./assets/images/dress-garments/Men-twopiece.PNG" alt="" aria-hidden="true" />
+        <img src="./assets/images/dress-garments/Men-vest.PNG" alt="" aria-hidden="true" />
+        <img src="./assets/images/dress-garments/Men-threepiece.PNG" alt="" aria-hidden="true" />
+        <img src="./assets/images/dress-garments/Men-suitwithtie.PNG" alt="" aria-hidden="true" />
+		  <img src="./assets/images/dress-garments/Men-tuxedo.PNG" alt="" aria-hidden="true" />
+		</div>
+    </div>
+  </article>
+
+    <!-- [HTML:DRESS-CODE-COLOR-GROUPS] -->
+<div class="dress-groups">
+
+  <!-- BRIDE -->
+  <div class="dress-group">
+    <strong>Bride</strong>
+
+    <div class="guest-colors">
+
+      <div class="guest-color">
+        <span class="dot ivory"></span>
+        <span>Ivory / White</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GROOM -->
+  <div class="dress-group">
+    <strong>Groom</strong>
+
+    <div class="guest-colors">
+
+      <div class="guest-color">
+        <span class="dot black"></span>
+        <span>Black</span>
+      </div>
+
+      <div class="guest-color">
+        <span class="dot ruby"></span>
+        <span>Ruby Red</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- BRIDESMAIDS -->
+  <div class="dress-group">
+    <strong>Bridesmaids</strong>
+
+    <div class="guest-colors">
+
+      <div class="guest-color">
+        <span class="dot burgundy-dot"></span>
+        <span>Burgundy / Wine</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GROOMSMEN -->
+  <div class="dress-group">
+    <strong>Groomsmen</strong>
+
+    <div class="guest-colors">
+
+      <div class="guest-color">
+        <span class="dot black"></span>
+        <span>Black</span>
+      </div>
+
+      <div class="guest-color">
+        <span class="dot burgundy-dot"></span>
+        <span>Burgundy</span>
+      </div>
+
+      <div class="guest-color">
+        <span class="dot ruby"></span>
+        <span>Ruby</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- GUESTS -->
+  <div class="dress-group guest-group">
+    <strong>Guests</strong>
+
+    <div class="guest-colors">
+
+      <div class="guest-color">
+        <span class="dot navy"></span>
+        <span>Navy</span>
+      </div>
+
+      <div class="guest-color">
+        <span class="dot champagne"></span>
+        <span>Champagne</span>
+      </div>
+
+      <div class="guest-color">
+        <span class="dot sage"></span>
+        <span>Sage</span>
+      </div>
+
+      <div class="guest-color">
+        <span class="dot olive"></span>
+        <span>Olive</span>
+      </div>
+
+      <div class="guest-color">
+        <span class="dot mocha"></span>
+        <span>Mocha</span>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- [HTML:DRESS-CODE-NOTES] -->
+<div class="dress-code-notes">
+
+  <p>
+    <strong>Outdoor Venue:</strong>
+    Our celebration will take place outdoors. Please choose comfortable
+    footwear suitable for grass and outdoor terrain.
+  </p>
+
+  <p>
+    <strong>A Note on Colors:</strong>
+    These colors are a guide, not a limitation. Guests are welcome to wear
+    other earthy and nature-inspired colors that complement the setting.
+  </p>
+
+</div>
+
+</section>
+
+
+        <!-- [HTML:VENUE-SECTION] -->
+        <section class="feature-section venue-section" id="venueSection">
+          <div class="feature-image venue-preview-image" aria-hidden="true">
+            <img
+              src="./assets/images/orangestar.png"
+              alt="Orangestar Farms venue"
+            />
+          </div>
+
+          <div class="feature-copy">
+            <p class="small-caps">Our Venue</p>
+            <h2>Orangestar Farms</h2>
+
+            <p>112 Story Partin Rd.</p>
+            <p>Orlando, FL 32833</p>
+
+            <a
+              class="primary-button green-button"
+              href="https://www.google.com/maps/search/?api=1&query=112%20Story%20Partin%20Rd%20Orlando%20FL%2032833"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Get Directions
+            </a>
+          </div>
+        </section>
+
+        <!-- [HTML:LOWER-CARDS] -->
+        <section class="lower-cards">
+
+          <!-- [HTML:REGISTRY-SECTION] -->
+          <section class="info-card registry-card" id="registrySection">
+            <div class="circle-icon">🎁</div>
+
+            <div>
+              <p class="small-caps">Registry</p>
+              <p>Your presence is the greatest gift.</p>
+              <p>If you’d like to contribute, please see our registries.</p>
+
+              <a
+  class="secondary-button"
+  href="https://www.amazon.com/wedding/guest-view/M5V3FME0IG8O"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  View Registry
+</a>
+            </div>
+          </section>
+
+          <!-- [HTML:RSVP-SECTION] -->
+          <section class="info-card rsvp-card" id="rsvpSection">
+            <div class="circle-icon burgundy-icon">✉</div>
+
+            <div>
+              <p class="small-caps">RSVP</p>
+              <p>Please let us know if you’ll be joining us.</p>
+
+              <a
+  class="secondary-button burgundy-button"
+  href="sms:+18608667963?&body=Hi%2C%20I%27d%20like%20to%20RSVP%20for%20Yaimi%20%26%20Kashawn%27s%20wedding.%0A%0ANumber%20of%20guests%3A%0ANames%20of%20guests%3A%0AAttending%20ceremony%3A%20Yes%20%2F%20No%0AAdditional%20information%3A"
+>
+  Text RSVP
+</a>
+            </div>
+          </section>
+
+        </section>
+
+        <!-- [HTML:THANK-YOU-SECTION] -->
+        <section class="thank-you-section">
+          <img
+            src="./assets/images/flower-girl.PNG"
+            alt="Cartoon flower girl"
+            class="thank-you-flower-girl"
+          />
+
+          <div class="thank-you-copy">
+            <h2>Thank You</h2>
+            <div class="heart-divider" aria-hidden="true">
+              <span></span>
+              <b>♥</b>
+              <span></span>
+            </div>
+
+            <p>Thank you for celebrating this special day with us.</p>
+            <p>We can’t wait to see you!</p>
+          </div>
+        </section>
+
+      </article>
+          </section>
+  </main>
+
+  <script src="./scripts/petals.js"></script>
+  <script src="./scripts/countdown.js"></script>
+  <script src="./scripts/app.js"></script>
+</body>
+</html>

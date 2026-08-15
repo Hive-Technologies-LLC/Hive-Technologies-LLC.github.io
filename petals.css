@@ -1,0 +1,152 @@
+/*
+  Project: KY Wedding Invite — Living Card
+  File: petals.css
+  Version: 3.0.0
+  Purpose: Flower girl reveal and red/white petal transition.
+  Key Constraints: Lightweight particle effect. Keep the
+                   transition visually elegant, mobile-friendly,
+                   and non-interactive.
+*/
+
+/* =========================================================
+   PETAL / FLOWER ANIMATIONS
+========================================================= */
+
+@keyframes flower-enter {
+  from {
+    transform: translateY(1.5rem) scale(0.92);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes petal-fall {
+  0% {
+    transform:
+      translate3d(var(--start-x), -14vh, 0)
+      rotate(0deg);
+
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  100% {
+    transform:
+      translate3d(var(--end-x), 114vh, 0)
+      rotate(var(--spin));
+
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   FLOWER GIRL
+========================================================= */
+
+.flower-girl-reveal {
+  width: min(78vw, 24rem);
+
+  border-radius: 1rem;
+
+  animation:
+    flower-enter 900ms ease both;
+
+  filter:
+    drop-shadow(0 1.4rem 2rem rgba(0, 0, 0, 0.55));
+
+  will-change:
+    transform,
+    opacity;
+}
+
+.flower-caption {
+  margin-top: 1rem;
+
+  color: var(--gold);
+
+  font-family: var(--script);
+  font-size: 1.7rem;
+
+  text-align: center;
+}
+
+/* =========================================================
+   PETAL LAYER
+========================================================= */
+
+.petal-layer {
+  position: fixed;
+  inset: 0;
+
+  z-index: 30;
+
+  overflow: hidden;
+
+  pointer-events: none;
+
+  /* Prevent accidental horizontal overflow from
+     animated particles on mobile browsers. */
+  max-width: 100vw;
+}
+
+/* =========================================================
+   INDIVIDUAL PETAL
+========================================================= */
+
+.petal {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: var(--size);
+  height: calc(var(--size) * 0.68);
+
+  border-radius:
+    90% 10% 90% 10%;
+
+  background: var(--petal-color);
+
+  box-shadow:
+    inset -0.12rem -0.08rem 0.18rem
+    rgba(0, 0, 0, 0.18);
+
+  animation:
+    petal-fall var(--duration) linear forwards;
+
+  will-change:
+    transform,
+    opacity;
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .flower-girl-reveal {
+    animation: none;
+
+    opacity: 1;
+
+    transform: none;
+
+    will-change: auto;
+  }
+
+  .petal-layer {
+    display: none;
+  }
+
+  .petal {
+    animation: none;
+  }
+}

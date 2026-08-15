@@ -1,0 +1,192 @@
+/*
+  Project: KY Wedding Invite — Living Card
+  File: buttons.css
+  Version: 3.1.0
+  Purpose: Buttons and call-to-action elements.
+  Key Constraints: Reusable throughout the site, accessible,
+                    mobile-friendly, and visually consistent.
+*/
+
+/* =========================================================
+   PRIMARY / SECONDARY BUTTONS
+========================================================= */
+
+.primary-button,
+.secondary-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: fit-content;
+  min-width: 11rem;
+
+  margin: 0.25rem auto 0;
+  padding: 0.8rem 1.2rem;
+
+  border: 0;
+  border-radius: 0.45rem;
+
+  color: #fff;
+
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  line-height: 1.2;
+  text-align: center;
+  text-transform: uppercase;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    transform 200ms ease,
+    box-shadow 200ms ease,
+    opacity 200ms ease,
+    filter 200ms ease;
+}
+
+/* =========================================================
+   BURGUNDY BUTTON
+========================================================= */
+
+.primary-button {
+  background: var(--burgundy);
+
+  box-shadow:
+    0 0.65rem 1.25rem rgba(125, 23, 33, 0.20);
+}
+
+.primary-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0.85rem 1.5rem rgba(125, 23, 33, 0.28);
+}
+
+.primary-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   GREEN BUTTON
+========================================================= */
+
+.green-button {
+  background: var(--green);
+
+  box-shadow:
+    0 0.65rem 1.25rem rgba(63, 79, 47, 0.18);
+}
+
+.green-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0.85rem 1.5rem rgba(63, 79, 47, 0.24);
+}
+
+.green-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   GOLD BUTTON
+========================================================= */
+
+.secondary-button {
+  background: var(--gold);
+
+  box-shadow:
+    0 0.65rem 1.25rem rgba(198, 154, 74, 0.22);
+}
+
+.secondary-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0.85rem 1.5rem rgba(198, 154, 74, 0.30);
+}
+
+.secondary-button:focus-visible {
+  outline: 2px solid var(--burgundy);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   BURGUNDY VARIANT
+========================================================= */
+
+.burgundy-button {
+  background: var(--burgundy);
+
+  box-shadow:
+    0 0.65rem 1.25rem rgba(125, 23, 33, 0.20);
+}
+
+.burgundy-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 0.85rem 1.5rem rgba(125, 23, 33, 0.28);
+}
+
+.burgundy-button:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   ACTIVE STATES
+========================================================= */
+
+.primary-button:active,
+.secondary-button:active,
+.green-button:active,
+.burgundy-button:active {
+  transform: scale(0.98);
+}
+
+/* =========================================================
+   DISABLED
+========================================================= */
+
+.primary-button:disabled,
+.secondary-button:disabled,
+.green-button:disabled,
+.burgundy-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 28rem) {
+
+  .primary-button,
+  .secondary-button {
+    min-width: 9.5rem;
+    padding: 0.75rem 1rem;
+
+    font-size: 0.68rem;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .primary-button,
+  .secondary-button,
+  .green-button,
+  .burgundy-button {
+    transition: none;
+  }
+}
